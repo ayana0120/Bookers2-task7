@@ -16,9 +16,6 @@ class User < ApplicationRecord
   has_many :followers, through: :passive_relationships, source: :following
   attachment :profile_image
 
-  geocoded_by :address
-  after_validation :geocode, if: :address_changed?
-
   def followed_by?(user)
     passive_relationships.where(following_id: user.id).exists?
   end
@@ -36,6 +33,7 @@ class User < ApplicationRecord
       end
     end
   end
+
 # 住所自動入力関連
   include JpPrefecture
   jp_prefecture :prefecture_code
@@ -48,23 +46,4 @@ class User < ApplicationRecord
     self.prefecture_code = JpPrefecture::Prefecture.find(name: prefecture_name).code
   end
 
-# Google Map API関連
-  class User
-    attr_accessor :city_address, :street_address
-
-    def address
-      Address.new(city_address, town_address, building_address)
-    end
-  end
-
-  class Address
-    attr_reader :city, :street
-
-    def initialize(city, street)
-      @city, @street = city, stree
-    end
-  end
-
-  geocoded_by :address
-  after_validation :geocode, if: :address_changed?
 end

@@ -54,7 +54,6 @@ ActiveRecord::Schema.define(version: 2020_11_22_071308) do
     t.datetime "updated_at", null: false
     t.text "introduction"
     t.integer "book_id"
-    t.string "profile_image"
     t.string "profile_image_id"
     t.string "postcode"
     t.integer "prefecture_code"
