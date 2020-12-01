@@ -12,33 +12,10 @@
 
 ActiveRecord::Schema.define(version: 2020_11_22_071308) do
 
-  create_table "book_comments", force: :cascade do |t|
-    t.text "comment"
-    t.integer "user_id"
-    t.integer "book_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "books", force: :cascade do |t|
     t.string "title"
     t.text "body"
     t.integer "user_id"
-    t.integer "profile_image_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "favorites", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "book_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "relationships", force: :cascade do |t|
-    t.integer "following_id"
-    t.integer "follower_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -53,8 +30,8 @@ ActiveRecord::Schema.define(version: 2020_11_22_071308) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "introduction"
-    t.integer "book_id"
     t.string "profile_image_id"
+    t.integer "book_id"
     t.string "postcode"
     t.integer "prefecture_code"
     t.string "city"

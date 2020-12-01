@@ -13,45 +13,31 @@
  *= require_tree .
  *= require_self
  */
-@import "bootstrap-sprockets";
-@import "bootstrap";
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;;
- }
-clearfix::after {
-  content: "";
-  display: block;
-  clear: both;
-}
-.title {
-  color: #fff;
-  font-size: 20px;
-}
-.body {
-  margin: 55px 10% 0px 8%;
+@import "bootstrap-sprockets";  /*ここを追加*/
+@import "bootstrap";            /*ここを追加*/
+
+header {
+	color:white;
 }
 
-.notice {
-  color: green;
-  }
-.error {
+header .navbar-left span {
+	font-size: 20px;
+	padding-top: 10px;
+}
+
+body {
+	margin-top: 40px;
+}
+
+.actions {
+	margin-top:10px;
+}
+#error_explanation {
   color: red;
 }
-.error-message {
-  font-size: 12px;
-  list-style: square;
-  margin-left: 60px;
+.notice {
+  margin-top: 30px;
 }
-.actions {
-  margin-top: 5px;
-}
-.search-box{
-  margin-top: 70px;
-  text-align: center;
-}
-#map { 
-  height: 300px;
-  width: 70%;
+.error {
+  color: red;
 }
